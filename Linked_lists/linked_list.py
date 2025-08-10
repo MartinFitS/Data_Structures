@@ -22,7 +22,7 @@ class LinkedList:
             print(current.data, end=" -> ")
             current = current.next
         print("None")
-    
+
     # Big O(1)
     def append_start(self , val):
         new_node = Node(val)
@@ -112,7 +112,20 @@ class LinkedList:
         #llegamos a un nodo anterior del que queremos eliminar
         #y su siguiente sera el siguiente del nodo que eliminaremos
         current.next = current.next.next
-        
+    
+    #Big O(N)
+    def deleteDuplicatesInSortedLinkedList(self):
+        current = self.head
+
+        #Verificamos si el actual y siguiente del actual no son none 
+        #para poder validar los values de current.next.data con el current.data
+        #y cambiar el puntero de asignacion.
+        while current and current.next is not None:
+            if current.data == current.next.data:
+                current.next = current.next.next
+            else:
+                current = current.next
+                 
 
 linked_list = LinkedList()
 
@@ -123,7 +136,6 @@ linked_list.append_end(9)
 
 linked_list.append_end(8)
 
-
 linked_list.append_at_index(1, 1)
 
 linked_list.del_first()
@@ -132,6 +144,10 @@ linked_list.del_at_index(1)
 
 linked_list.del_last()
 
+linked_list.append_start(1)
+linked_list.append_at_index(2, 2)
+linked_list.append_at_index(2, 2)
 
 
+linked_list.deleteDuplicatesInSortedLinkedList()
 linked_list.print_linked_list()
