@@ -117,9 +117,6 @@ class LinkedList:
     def deleteDuplicatesInSortedLinkedList(self):
         current = self.head
 
-        #Verificamos si el actual y siguiente del actual no son none 
-        #para poder validar los values de current.next.data con el current.data
-        #y cambiar el puntero de asignacion.
         while current and current.next is not None:
             if current.data == current.next.data:
                 current.next = current.next.next
